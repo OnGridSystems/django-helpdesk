@@ -404,7 +404,7 @@ class Ticket(models.Model):
 
     reporter = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name='reporter',
         blank=True,
         null=True,
