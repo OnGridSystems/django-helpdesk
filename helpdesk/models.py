@@ -617,6 +617,11 @@ class Ticket(models.Model):
     def __str__(self):
         return '%s %s' % (self.id, self.title)
 
+    def get_root_relative_url(self):
+        return "%s" % (
+            reverse('helpdesk:view', args=(self.id,))
+        )
+
     def get_absolute_url(self):
         return "%s%s" % (
             HOST,
