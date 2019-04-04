@@ -26,7 +26,7 @@ from django.template import loader
 from ico_portal.utils.datetime import datetime
 
 
-HOST = settings.HOST
+HOST = settings.HOME_URL
 
 
 @python_2_unicode_compatible
@@ -1546,7 +1546,7 @@ def send_ticket_upd_email(sender, instance, created, **kwargs):
     reporter = instance.ticket.reporter
 
     if created and instance.public and reporter and reporter != instance.user:
-        url = f'{settings.HOST}/user_office/support/ticket/{instance.ticket.id}/'
+        url = f'{settings.HOME_URL}/user_office/support/ticket/{instance.ticket.id}/'
 
         ctx = {
             'email': reporter.email,
